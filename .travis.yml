@@ -22,3 +22,4 @@ after_success:
   - docker push santoshbs/multi-nginx
   - docker push santoshbs/multi-server
   - docker push santoshbs/multi-worker
+
