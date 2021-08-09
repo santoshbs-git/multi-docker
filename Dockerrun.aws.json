@@ -1,0 +1,38 @@
+{
+	"AWSEBDockerrunVersion": 2,
+	"containerDefinitions": [
+	
+		{	
+			"name": "client",
+			"image": "santoshbs/multi-client",
+			"hostname": "client",
+			"essential": false
+		},
+		{
+			"name": "server",
+			"image": "santoshbs/multi-server",
+			"hostname": "api",
+			"essential": false
+		},
+		{
+			"name": "worker",
+			"image": "santoshbs/multi-worker",
+			"hosntame": "worker",
+			"essential": false
+		},
+		{
+			"name": "nginx",
+			"image": "santoshbs/multi-nginx",
+			"hostname": "nginx",
+			"essential": true,
+			"portMappings": [
+				{
+				"hostPort": 80,
+				"containerPort": 80
+				}
+			],
+			"links": ["client", "server"]
+		}
+	]
+}
+
